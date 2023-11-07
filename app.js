@@ -21,6 +21,9 @@ const app = express();
 const corseAllowedOrigins = [
   'http://diplommovies.nomoredomainsmonster.ru',
   'https://diplommovies.nomoredomainsmonster.ru',
+
+  'http://api.diplommovies.nomoredomainsmonster.ru',
+  'https://api.diplommovies.nomoredomainsmonster.ru',
 ];
 
 app.use(cors({
