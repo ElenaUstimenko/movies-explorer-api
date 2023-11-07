@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate'); // отправить клиенту ошибку
-// const cors = require('cors');
+const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { router } = require('./routes/index');
 const limiter = require('./middlewares/rateLimiter');
@@ -18,16 +18,16 @@ const {
 
 const app = express();
 
-/* const corseAllowedOrigins = [
-  'http://fifteen.nomoredomainsrocks.ru',
-  'https://fifteen.nomoredomainsrocks.ru',
+const corseAllowedOrigins = [
+  'http://diplommovies.nomoredomainsmonster.ru',
+  'https://diplommovies.nomoredomainsmonster.ru',
 ];
 
 app.use(cors({
   origin: corseAllowedOrigins,
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
-})); */
+}));
 
 app.use(helmet()); // для защиты приложения путем настройки заголовков HTTP
 
