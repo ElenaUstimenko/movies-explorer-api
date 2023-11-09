@@ -5,6 +5,7 @@
 Версия Node.js 18.18.0-x64
 
 Бэкенд сервиса, в котором можно найти фильмы по запросу и сохранить в личном кабинете.
+
 Функционал:
 * Регистрация пользователя
 * Авторизация пользователя
@@ -41,6 +42,7 @@ https://github.com/ElenaUstimenko/movies-explorer-api.git
 Version of Node.js 18.18.0-x64
 
 Backend service where you can find movies on request and save in your account.
+
 Functionality:
 * User registration
 * User Authorization
