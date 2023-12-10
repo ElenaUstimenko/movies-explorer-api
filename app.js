@@ -17,22 +17,15 @@ const {
 } = process.env;
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 
-// const corseAllowedOrigins = [
-//  'http://diplommovies.nomoredomainsmonster.ru',
-//  'https://diplommovies.nomoredomainsmonster.ru',
-
-//  'http://api.diplommovies.nomoredomainsmonster.ru',
-//  'https://api.diplommovies.nomoredomainsmonster.ru',
-// ];
-
-// app.use(cors({
-//  origin: corseAllowedOrigins,
-//  allowedHeaders: ['Content-Type', 'Authorization'],
-//  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-//  credentials: true,
-// }));
+app.use(cors({
+  origin: [
+    'http://diplommovies.nomoredomainsmonster.ru',
+    'https://diplommovies.nomoredomainsmonster.ru',
+  ],
+  credentials: true,
+}));
 
 app.use(helmet()); // для защиты приложения путем настройки заголовков HTTP
 
