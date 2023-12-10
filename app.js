@@ -17,15 +17,15 @@ const {
 } = process.env;
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 
-app.use(cors({
+/* app.use(cors({
   origin: [
     'http://diplommovies.nomoredomainsmonster.ru',
     'https://diplommovies.nomoredomainsmonster.ru',
   ],
   credentials: true,
-}));
+})); */
 
 app.use(helmet()); // для защиты приложения путем настройки заголовков HTTP
 
