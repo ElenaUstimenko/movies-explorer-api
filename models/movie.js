@@ -59,6 +59,11 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  movieId: {
+    type: String,
+    required: true,
+    default: {},
+  },
 });
 
 module.exports = mongoose.model('movie', movieSchema);
