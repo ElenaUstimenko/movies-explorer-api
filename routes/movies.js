@@ -5,8 +5,6 @@ const {
   getMovies,
   createMovie,
   deleteMovie,
-  likeCard,
-  dislikeCard,
 } = require('../controllers/movies');
 
 // возвращает все сохранённые текущим пользователем фильмы
@@ -34,17 +32,5 @@ movieRoutes.delete('/:_id', celebrate({
     _id: Joi.string().length(24).hex().required(),
   }),
 }), deleteMovie);
-
-movieRoutes.put('/:_id/likes', celebrate({
-  params: Joi.object().keys({
-    cardId: Joi.string().length(24).hex().required(),
-  }),
-}), likeCard);
-
-movieRoutes.delete('/:_id/likes', celebrate({
-  params: Joi.object().keys({
-    cardId: Joi.string().length(24).hex().required(),
-  }),
-}), dislikeCard);
 
 module.exports = movieRoutes;

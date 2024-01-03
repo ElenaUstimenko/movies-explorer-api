@@ -59,12 +59,6 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // список лайкнувших фильм пользователей
-  likes: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
-    default: [],
-  }],
 });
 
 module.exports = mongoose.model('movie', movieSchema);

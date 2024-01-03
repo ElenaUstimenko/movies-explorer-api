@@ -88,55 +88,8 @@ const deleteMovie = (req, res, next) => {
     });
 };
 
-// PUT /movies/:_id/likes — поставить лайк карточке
-const likeCard = (req, res, next) => {
-  const userId = req.user._id;
-
-  Movie.findByIdAndUpdate(
-    req.params._id,
-    { $addToSet: { likes: userId } },
-    { new: true },
-  )
-    .then((card) => {
-      if (card) {
-        res.send(card);
-      }
-      throw new NotFoundError('Передан несуществующий _id карточки');
-    })
-    .catch((err) => {
-      if (err instanceof mongoose.Error.CastError) {
-        return next(new ValidationError('Переданы некорректные данные'));
-      }
-      return next(err);
-    });
-};
-
-// DELETE /movies/:_id/likes — убрать лайк с карточки
-const dislikeCard = async (req, res, next) => {
-  try {
-    const userId = req.user._id;
-    const card = await Movie.findByIdAndUpdate(
-      req.params._id,
-      { $pull: { likes: userId } },
-      { new: true },
-    );
-
-    if (!card) {
-      throw new NotFoundError('Передан несуществующий _id карточки');
-    }
-    return res.send(card);
-  } catch (err) {
-    if (err instanceof mongoose.Error.CastError) {
-      return next(new ValidationError('Переданы некорректные данные'));
-    }
-    return next(err);
-  }
-};
-
 module.exports = {
   getMovies,
   createMovie,
   deleteMovie,
-  likeCard,
-  dislikeCard,
 };
