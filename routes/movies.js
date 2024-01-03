@@ -23,7 +23,6 @@ movieRoutes.post('/', celebrate({
     thumbnail: Joi.string().pattern(URL_REGEX).required(),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
-    movieId: Joi.string().required(),
   }),
 }), createMovie);
 
