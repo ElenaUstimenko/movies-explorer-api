@@ -34,6 +34,7 @@ const createMovie = (req, res, next) => {
     thumbnail,
     nameRU,
     nameEN,
+    movieId,
   } = req.body;
   const ownerId = req.user._id;
 
@@ -49,10 +50,11 @@ const createMovie = (req, res, next) => {
     owner: ownerId,
     nameRU,
     nameEN,
+    movieId,
   })
     .then((movie) => {
-      const { _id: movieId } = movie;
-      res.status(201).send({ _id: movieId });
+      // const { _id: movieId } = movie;
+      res.status(201).send({ /* _id: movieId */ movie });
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
